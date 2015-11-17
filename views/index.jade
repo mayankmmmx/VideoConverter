@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    h1 DEMO
+    p Our web app serves to provide more people with more content by translating videos into languages individuals can understand.
+
+    form(name="input", action="html_form_action.asp", method="get")
+        | Enter Link:
+        input(type="text", name="user", placeholder="https://www.youtube.com/embed/ugsk4Zq_2f4", size = "50")
+
+    br
+
+    div Please select the language you would like to have this translated in: 
+
+    select(name="lang")
+        option(value="es" selected) Spanish
+        option(value="fr") French
+        option(value="de") German
+        option(value="it") Italian
+
+    br
+    br
+
+
+
+    iframe(type='text/html' width='640' height='390'
+    src='https://www.youtube.com/embed/ugsk4Zq_2f4?autoplay=1&origin=http://example.com'
+    frameborder='0')
+
+    h2 TRANSLATED TEXT:
+    h3 Spanish
+    p= allLanguages[0]
+
+    h3 French
+    p= allLanguages[2]
+
+    h3 German
+    p= allLanguages[3]
+
+    h3 Italian
+    p= allLanguages[1]
